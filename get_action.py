@@ -7,8 +7,8 @@ class Actions:
 
     def __init__(self):
         self.table_tickers = pd.read_excel("Tickers.xlsx")
-        self.start_action = "04-01-2022"  # Formatting: MM/DD/AAAA
-        self.end_action = "04-03-2022"  # Formatting: MM/DD/AAAA
+        self.start_action = "03-01-2022"  # Formatting: MM/DD/AAAA
+        self.end_action = "03-30-2022"  # Formatting: MM/DD/AAAA
         self.local_web = "yahoo"
 
     def get_all_actions(self):
@@ -20,7 +20,7 @@ class Actions:
                                          data_source=f'{self.local_web}',
                                          start=f'{self.start_action}',
                                          end=f'{self.end_action}')
-                indices["Adj Close"].plot(figsize=(10, 5))
+                indices["Adj Close"].plot(figsize=(10, 5), lw=2, ls='-.')
                 plt.title(f'{company}')
                 plt.show()
             else:
@@ -29,7 +29,7 @@ class Actions:
                                         data_source=f'{self.local_web}',
                                         start=f'{self.start_action}',
                                         end=f'{self.end_action}')
-                action["Adj Close"].plot(figsize=(10, 5))
+                action["Adj Close"].plot(figsize=(10, 5), lw=2, ls='--')
                 plt.title(f'{company}')
                 plt.show()
 
